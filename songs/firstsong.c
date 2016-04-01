@@ -226,135 +226,260 @@ void msleep(int d){
   usleep(d*1000);
 }
 
-void melody(){
+void melody1(divi){
+  buzzer_start();
+  buzzer_set_freq(B4);
+  msleep(metro/divi);
+  buzzer_set_freq(B4);
+  msleep(metro/(divi*4));
+  buzzer_set_freq(B4);
+  msleep(metro/divi);
+  buzzer_set_freq(G4);
+  msleep(metro/(divi*4));
+  buzzer_set_freq(B4);
+  msleep(metro/divi);
   buzzer_set_freq(A4);
-  msleep(metro/2);
+  msleep(metro/(divi*4));
+  buzzer_set_freq(B4);
+  msleep(metro/divi);
+  buzzer_set_freq(E3);
+  msleep(metro/(divi*4));
+
+  buzzer_set_freq(D4);
+  msleep(metro/(divi*2));
+  buzzer_stop();
+  msleep(metro/(divi*8));
+
+  buzzer_start();
+  buzzer_set_freq(D4);
+  msleep(metro/(divi*4));
+  buzzer_stop();
+  msleep(metro/(divi*8));
+
+  buzzer_start();
+  buzzer_set_freq(D4);
+  msleep(metro/(divi*4));
+  buzzer_stop();
+  msleep(metro/(divi*8));
+
+  buzzer_start();
+  buzzer_set_freq(D4);
+  msleep(metro/(divi*2));
+  buzzer_stop();
+  msleep(metro/(divi*8));
+
+  msleep(2*(metro/divi));
+}
+
+void melody2(divi){
+  buzzer_start();
+  buzzer_set_freq(E4);
+  msleep(metro/divi);
+  buzzer_set_freq(D4);
+  msleep(metro/(divi*2));
+  buzzer_set_freq(A3);
+  msleep(metro/(divi*2));
+  buzzer_set_freq(G3);
+  msleep(metro/(divi*2));
+  buzzer_stop();
+
+  msleep(2*metro/(divi));
+
+  buzzer_start();
+  buzzer_set_freq(E4);
+  msleep(metro/divi);
+  buzzer_set_freq(D4);
+  msleep(metro/(divi*2));
+  buzzer_set_freq(B3);
+  msleep(metro/(divi*4));
+  buzzer_set_freq(A3);
+  msleep(metro/(divi*4));
+  buzzer_set_freq(G3);
+  msleep(metro/(divi*4));
+  buzzer_set_freq(F3);
+  msleep(metro/(divi*4));
+  buzzer_set_freq(E3);
+  msleep(metro/(divi));
+  buzzer_stop();
+
+  msleep(1*metro/(divi));
+}
+
+void melody3(divi){
+  buzzer_start();
+  buzzer_set_freq(E4);
+  msleep(metro/divi*2);
+  buzzer_set_freq(D4);
+  msleep(metro/(divi*4));
+  buzzer_set_freq(B3);
+  msleep(metro/(divi*8));
+  buzzer_set_freq(A3);
+  msleep(metro/(divi*8));
+  buzzer_set_freq(G3);
+  msleep(metro/(divi*8));
+  buzzer_set_freq(F3);
+  msleep(metro/(divi*8));
+  buzzer_set_freq(E3);
+  msleep(metro/(divi*2));
+  buzzer_stop();
+
+  msleep(metro/(divi*4));
+
+  buzzer_start();
+  buzzer_set_freq(E4);
+  msleep(metro/divi*2);
+  buzzer_set_freq(D4);
+  msleep(metro/(divi*4));
+  buzzer_set_freq(B3);
+  msleep(metro/(divi*8));
+  buzzer_set_freq(A3);
+  msleep(metro/(divi*8));
+  buzzer_set_freq(G3);
+  msleep(metro/(divi*8));
+  buzzer_set_freq(F3);
+  msleep(metro/(divi*8));
+  buzzer_set_freq(E3);
+  msleep(metro/(divi*2));
+  buzzer_stop();
+
+  msleep(metro/(divi*8));
+
+  buzzer_start();
+  buzzer_set_freq(E3);
+  msleep(metro/(divi*2));
+  buzzer_stop();
+
+}
+
+void melody4(divi){
+
+  buzzer_start();
+  buzzer_set_freq(B3);
+  msleep(metro/(divi*2));
+  buzzer_stop();
+
+  msleep(metro/(divi*8));
+
+  buzzer_start();
+  buzzer_set_freq(B3);
+  msleep(metro/(divi*2));
+  buzzer_stop();
+
+  msleep(metro/(divi*8));
+
+  buzzer_start();
+  buzzer_set_freq(B3);
+  msleep(metro/(divi*2));
+  buzzer_stop();
+
+  msleep(metro/(divi*8));
+
+  buzzer_start();
+  buzzer_set_freq(B3);
+  msleep(metro/(divi*2));
+  buzzer_stop();
+
+  msleep(metro/(divi*8));
+
+  buzzer_start();
+  buzzer_set_freq(B4);
+  msleep(metro/(divi*4));
+  buzzer_set_freq(B3);
+  msleep(metro/(divi*4));
+  buzzer_stop();
+
+  msleep(metro/(divi*8));
+
+  buzzer_start();
+  buzzer_set_freq(B3);
+  msleep(metro/(divi*8));
+  buzzer_stop();
+
+  msleep(metro/(divi*8));
+
+  buzzer_start();
+  buzzer_set_freq(G3);
+  msleep(metro/(divi*8));
+  buzzer_stop();
+
+  msleep(metro/(divi*8));
+
+  buzzer_start();
+  buzzer_set_freq(B3);
+  msleep(metro/(divi*8));
+  buzzer_stop();
+
+  msleep(metro/(divi*8));
+
+  buzzer_start();
+  buzzer_set_freq(G3);
+  msleep(metro/(divi*8));
+  buzzer_stop();
+
+  msleep(metro/(divi*8));
+
+  buzzer_start();
+  buzzer_set_freq(B3);
+  msleep(metro/(divi*8));
+  buzzer_stop();
+
 }
 
 void bass(){
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(E0);
-  msleep(metro/10);
-  buzzer_set_freq(Gb0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(E0);
-  msleep(metro/10);
-  buzzer_set_freq(Gb0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(E0);
-  msleep(metro/10);
-  buzzer_set_freq(Gb0);
-  msleep(metro/10);
-
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(E0);
-  msleep(metro/10);
-  buzzer_set_freq(Gb0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(E0);
-  msleep(metro/10);
-  buzzer_set_freq(Gb0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(E0);
-  msleep(metro/10);
-  buzzer_set_freq(Gb0);
-  msleep(metro/10);
-
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(E0);
-  msleep(metro/10);
-  buzzer_set_freq(Gb0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(E0);
-  msleep(metro/10);
-  buzzer_set_freq(Gb0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(E0);
-  msleep(metro/10);
-  buzzer_set_freq(Gb0);
-  msleep(metro/10);
-
-  buzzer_set_freq(C1);
-  msleep(metro/10);
-  buzzer_set_freq(C1);
-  msleep(metro/10);
-  buzzer_set_freq(E0);
-  msleep(metro/10);
-  buzzer_set_freq(Gb0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(C1);
-  msleep(metro/10);
-  buzzer_set_freq(E0);
-  msleep(metro/10);
-  buzzer_set_freq(Gb0);
-  msleep(metro/10);
-  buzzer_set_freq(A0);
-  msleep(metro/10);
-  buzzer_set_freq(C1);
-  msleep(metro/10);
-  buzzer_set_freq(E0);
-  msleep(metro/10);
-  buzzer_set_freq(Gb0);
-  msleep(metro/10);
+  // somthing here
 }
 
-void rythm(){
-  msleep(metro);
+void rythm(divi){
   buzzer_start();
-  buzzer_set_freq(E3);
-  msleep(metro);
-  buzzer_set_freq(E3);
-  msleep(metro);
+  buzzer_set_freq(E2);
+  msleep(metro/divi);
+  buzzer_set_freq(E2);
+  msleep(metro/divi);
   buzzer_stop();
-  msleep(metro);
+  msleep(metro/divi);
 
   buzzer_start();
-  buzzer_set_freq(E3);
-  msleep(metro);
+  buzzer_set_freq(E2);
+  msleep(metro/divi);
+  buzzer_set_freq(E2);
+  msleep(metro/divi);
   buzzer_stop();
-  msleep(metro);
-  buzzer_start();
-  buzzer_set_freq(E3);
-  msleep(metro);
-  buzzer_set_freq(E3);
-  msleep(metro);
-  buzzer_stop();
+  msleep(metro/divi);
 
+  buzzer_start();
+  buzzer_set_freq(E2);
+  msleep(metro/divi);
+  buzzer_stop();
+  msleep(metro/divi);
+  buzzer_start();
+  buzzer_set_freq(A2);
+  msleep(metro/divi);
+  buzzer_set_freq(B2);
+  msleep(metro/divi);
+  buzzer_stop();
+  msleep(metro/divi);
+
+  msleep(metro/divi);
+  buzzer_start();
+  buzzer_set_freq(E2);
+  msleep(metro/divi);
+  buzzer_set_freq(E2);
+  msleep(metro/divi);
+  buzzer_stop();
+  msleep(metro/divi);
+
+  buzzer_start();
+  buzzer_set_freq(E2);
+  msleep(metro/(divi));
+  buzzer_stop();
+  msleep(metro/(divi));
+  buzzer_start();
+  buzzer_set_freq(A2);
+  msleep(metro/(divi));
+  buzzer_set_freq(G2);
+  msleep(metro/(divi));
+  buzzer_stop();
+  msleep(metro/(divi));
 }
 
 int main(void) {
@@ -362,14 +487,18 @@ int main(void) {
   pid_t pid = fork();
   if (pid == 0){
     printf("wot child\n");
-    // buzzer_start();
-    rythm();
-    // buzzer_stop();
+    for (int i = 0; i < 13; i++)
+    rythm(16);
   } else if (pid > 0 ) {
     printf("wot parent\n");
-    // buzzer_start();
-    // bass();
-    // buzzer_stop();
+    melody1(3);
+    melody3(6);
+    melody3(6);
+    melody4(2);
+    melody3(6);
+    melody3(6);
+    for (int i = 0; i < 4; i ++)
+    melody4(2);
   } else {
     printf("fork() failed!\n");
     return 1;
