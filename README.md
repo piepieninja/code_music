@@ -1,8 +1,12 @@
-# asm_music
+# code_music
 This is for composing music in assembly on MAC 2.4 GHz Intel Core i5 with nasm
 
 ## .c dependencies:
 * portaudio - just `brew install portaudio`
+
+you need to compile with `gcc` and link to portaudio like so:
+
+`gcc sourcemusicfile.c -o outputfile.x -lportaudio`
 
 ## .asm dependencies:
 * nasm - just `brew install nasm`
