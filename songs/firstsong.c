@@ -19,6 +19,53 @@ typedef struct
 
 //volatile int freq = 0;
 
+// NOTES HERE
+// notes frequency chart: http://www.phy.mtu.edu/~suits/notefreqs.html
+
+int C0  = 16;
+int Db0 = 17;
+int D0  = 18;
+int Eb0 = 19;
+int E0  = 20;
+int F0  = 22;
+int Gb0 = 23;
+int G0  = 24;
+int Ab0 = 25;
+int A0  = 27;
+int Bb0 = 29;
+int B0  = 31;
+int C1  = 32;
+
+int Ab3 = 207;
+int A3  = 220;
+int Bb3 = 233;
+int B3  = 246;
+int C4  = 261;
+int Db4 = 277;
+int D4  = 293;
+int Eb4 = 311;
+int E4  = 329;
+int F4  = 349;
+int Gb4 = 370;
+int G4  = 392;
+int Ab4 = 415;
+int A4  = 440;
+int Bb4 = 466;
+int B4  = 494;
+int C5  = 523;
+int Db5 = 554;
+int D5  = 587;
+int Eb5 = 622;
+int E5  = 659;
+int F5  = 698;
+int Gb5 = 740;
+int G5  = 784;
+int Ab5 = 830;
+int A5  = 880;
+
+// how quick? in ms
+int metro = 1000;
+
 /* This routine will be called by the PortAudio engine when audio is needed.
 ** It may called at interrupt level on some machines so don't do anything
 ** that could mess up the system like calling malloc() or free().
@@ -149,30 +196,129 @@ void msleep(int d){
   usleep(d*1000);
 }
 
-int main(void) {
-
-  // notes frequency chart: http://www.phy.mtu.edu/~suits/notefreqs.html
-
-  buzzer_start();
-  buzzer_set_freq(261);
-  msleep(250);
-  buzzer_set_freq(293);
-  msleep(250);
-  buzzer_set_freq(329);
-  msleep(250);
-  buzzer_set_freq(349);
-  msleep(250);
-  buzzer_set_freq(392);
-  msleep(250);
-  buzzer_set_freq(440);
-  msleep(250);
-  buzzer_set_freq(494);
-  msleep(250);
-  buzzer_beep(523, 200);
-  msleep(250);
-
-  buzzer_stop();
-
-  return 0;
+void melody(){
+  buzzer_set_freq(A4);
+  msleep(metro/2);
 }
 
+void bass(){
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(E0);
+  msleep(metro/10);
+  buzzer_set_freq(Gb0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(E0);
+  msleep(metro/10);
+  buzzer_set_freq(Gb0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(E0);
+  msleep(metro/10);
+  buzzer_set_freq(Gb0);
+  msleep(metro/10);
+
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(E0);
+  msleep(metro/10);
+  buzzer_set_freq(Gb0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(E0);
+  msleep(metro/10);
+  buzzer_set_freq(Gb0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(E0);
+  msleep(metro/10);
+  buzzer_set_freq(Gb0);
+  msleep(metro/10);
+
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(E0);
+  msleep(metro/10);
+  buzzer_set_freq(Gb0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(E0);
+  msleep(metro/10);
+  buzzer_set_freq(Gb0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(E0);
+  msleep(metro/10);
+  buzzer_set_freq(Gb0);
+  msleep(metro/10);
+
+  buzzer_set_freq(C1);
+  msleep(metro/10);
+  buzzer_set_freq(C1);
+  msleep(metro/10);
+  buzzer_set_freq(E0);
+  msleep(metro/10);
+  buzzer_set_freq(Gb0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(C1);
+  msleep(metro/10);
+  buzzer_set_freq(E0);
+  msleep(metro/10);
+  buzzer_set_freq(Gb0);
+  msleep(metro/10);
+  buzzer_set_freq(A0);
+  msleep(metro/10);
+  buzzer_set_freq(C1);
+  msleep(metro/10);
+  buzzer_set_freq(E0);
+  msleep(metro/10);
+  buzzer_set_freq(Gb0);
+  msleep(metro/10);
+}
+
+int main(void) {
+
+  pid_t pid = fork();
+  if (pid == 0){
+    printf("wot child\n");
+    buzzer_start();
+    bass();
+    buzzer_stop();
+  } else if (pid > 0 ) {
+    printf("wot parent\n");
+    // buzzer_start();
+    // bass();
+    // buzzer_stop();
+  } else {
+    printf("fork() failed!\n");
+    return 1;
+  }
+  return 0;
+}

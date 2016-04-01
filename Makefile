@@ -13,6 +13,5 @@ clean:
 	then \
 		rm *.x ;\
 	fi;
-hello:
-	nasm -f macho hello.asm
-	ld -e _start -o hello.x hello.o
+cleansongs:
+	rm songs/*~
