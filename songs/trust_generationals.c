@@ -229,11 +229,15 @@ int buzzer_stop()  {
 
 // note is the pitch and style is the space after the pitch is played
 void quarternote (int note, int style){
-  buzzer_start();
-  buzzer_set_freq(note);
-  usleep(1000*(beat_length/8) - style);
-  buzzer_stop();
-  usleep(style);
+  if (note > 0){
+    buzzer_start();
+    buzzer_set_freq(note);
+    usleep(1000*(beat_length/8) - style);
+    buzzer_stop();
+    usleep(style);
+  } else {
+    usleep(1000*(beat_length/8));
+  }
 }
 
 // =============== THEMES ===============
@@ -323,34 +327,50 @@ void theme1(){
 }
 
 void beat1(){
-  quarternote(0, 0);
-  quarternote(0, 0);
-  quarternote(G0, 5);
-  quarternote(0, 0);
+  quarternote(G2, 1);
+  quarternote(G2, 1);
+  quarternote(G2, 1);
+  quarternote(G2, 1);
 
-  quarternote(0, 0);
-  quarternote(0, 0);
-  quarternote(G0, 5);
-  quarternote(0, 0);
+  quarternote(G2, 1);
+  quarternote(G2, 1);
+  quarternote(G2, 1);
+  quarternote(G2, 1);
 
-  quarternote(0, 0);
-  quarternote(0, 0);
-  quarternote(G0, 5);
-  quarternote(G0, 5);
+  quarternote(G2, 1);
+  quarternote(G2, 1);
+  quarternote(G2, 1);
+  quarternote(G2, 1);
 
-  quarternote(0, 0);
-  quarternote(0, 0);
-  quarternote(G0, 5);
-  quarternote(0, 0);
+  // quarternote(0, 1);
+  // quarternote(0, 1);
+  // quarternote(G2, 1);
+  // quarternote(0, 1);
+  //
+  // quarternote(0, 1);
+  // quarternote(0, 1);
+  // quarternote(G2, 1);
+  // quarternote(0, 1);
+  //
+  // quarternote(0, 1);
+  // quarternote(0, 1);
+  // quarternote(G2, 1);
+  // quarternote(G2, 1);
+  //
+  // quarternote(0, 1);
+  // quarternote(0, 1);
+  // quarternote(G2, 1);
+  // quarternote(0, 1);
 }
 
 int main(void) {
 
   pid_t pid = fork();
   if (pid == 0){
-    theme1();
-  } else {
+    for (int i = 0; i < 4; i ++)
     beat1();
+  } else {
+    theme1();
   }
 
   return 0;
