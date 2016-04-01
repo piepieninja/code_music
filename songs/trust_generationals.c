@@ -368,7 +368,7 @@ int main(void) {
   pid_t pid = fork();
   if (pid == 0){
     for (int i = 0; i < 4; i ++)
-    beat1();
+    theme1();
   } else {
     theme1();
   }
