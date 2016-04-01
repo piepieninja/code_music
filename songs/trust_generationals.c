@@ -224,14 +224,11 @@ int buzzer_stop()  {
   return err;
 }
 
-void msleep(int d){
-  usleep(d*1000);
-}
 
 // =============== NOTE TYPES ===============
 
+// note is the pitch and style is the space after the pitch is played
 void quarternote (int note, int style){
-  // TODO make different styles
   buzzer_start();
   buzzer_set_freq(note);
   usleep(1000*(beat_length/8) - style);
@@ -325,9 +322,36 @@ void theme1(){
   quarternote(G3, 1);
 }
 
+void beat1(){
+  quarternote(0, 0);
+  quarternote(0, 0);
+  quarternote(G0, 5);
+  quarternote(0, 0);
+
+  quarternote(0, 0);
+  quarternote(0, 0);
+  quarternote(G0, 5);
+  quarternote(0, 0);
+
+  quarternote(0, 0);
+  quarternote(0, 0);
+  quarternote(G0, 5);
+  quarternote(G0, 5);
+
+  quarternote(0, 0);
+  quarternote(0, 0);
+  quarternote(G0, 5);
+  quarternote(0, 0);
+}
+
 int main(void) {
 
-  theme1();
+  pid_t pid = fork();
+  if (pid == 0){
+    theme1();
+  } else {
+    beat1();
+  }
 
   return 0;
 }
