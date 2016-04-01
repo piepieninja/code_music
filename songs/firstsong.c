@@ -35,7 +35,37 @@ int A0  = 27;
 int Bb0 = 29;
 int B0  = 31;
 int C1  = 32;
-
+int Db1 = 34;
+int D1  = 36;
+int Eb1 = 38;
+int E1  = 41;
+int F1  = 43;
+int Gb1 = 46;
+int G1  = 49;
+int Ab1 = 51;
+int A1  = 55;
+int Bb1 = 58;
+int B1  = 61;
+int C2  = 65;
+int Db2 = 69;
+int D2  = 73;
+int Eb2 = 77;
+int E2  = 82;
+int F2  = 87;
+int Gb2 = 92;
+int G2  = 98;
+int Ab2 = 103;
+int A2  = 110;
+int Bb2 = 116;
+int B2  = 123;
+int C3  = 130;
+int Db3 = 138;
+int D3  = 146;
+int Eb3 = 155;
+int E3  = 164;
+int F3  = 174;
+int Gb3 = 185;
+int G3  = 196;
 int Ab3 = 207;
 int A3  = 220;
 int Bb3 = 233;
@@ -303,14 +333,38 @@ void bass(){
   msleep(metro/10);
 }
 
+void rythm(){
+  msleep(metro);
+  buzzer_start();
+  buzzer_set_freq(E3);
+  msleep(metro);
+  buzzer_set_freq(E3);
+  msleep(metro);
+  buzzer_stop();
+  msleep(metro);
+
+  buzzer_start();
+  buzzer_set_freq(E3);
+  msleep(metro);
+  buzzer_stop();
+  msleep(metro);
+  buzzer_start();
+  buzzer_set_freq(E3);
+  msleep(metro);
+  buzzer_set_freq(E3);
+  msleep(metro);
+  buzzer_stop();
+
+}
+
 int main(void) {
 
   pid_t pid = fork();
   if (pid == 0){
     printf("wot child\n");
-    buzzer_start();
-    bass();
-    buzzer_stop();
+    // buzzer_start();
+    rythm();
+    // buzzer_stop();
   } else if (pid > 0 ) {
     printf("wot parent\n");
     // buzzer_start();
