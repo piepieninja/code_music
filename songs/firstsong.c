@@ -87,8 +87,7 @@ void buzzer_beep(int frequency, int msecs)
   data.freq = frequency;
 }
 
-int buzzer_start(void)
-{
+int buzzer_start(void) {
   PaStreamParameters outputParameters;
 
   PaError err;
@@ -127,8 +126,7 @@ int buzzer_start(void)
 
 }
 
-int buzzer_stop() 
-{
+int buzzer_stop()  {
   PaError err = 0;
   err = Pa_StopStream( stream );
   if( err != paNoError ) goto error;
@@ -146,11 +144,12 @@ int buzzer_stop()
   fprintf( stderr, "Error message: %s\n", Pa_GetErrorText( err ) );
   return err;
 }
+
 void msleep(int d){
   usleep(d*1000);
 }
-int main(void)
-{
+
+int main(void) {
 
   // notes frequency chart: http://www.phy.mtu.edu/~suits/notefreqs.html
 
