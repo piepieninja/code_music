@@ -3,6 +3,7 @@
 #include "portaudio.h"
 #include <stdint.h>
 #include <unistd.h> // for usleep()
+#include <time.h> // because music needs time
 
 #define SAMPLE_RATE   (44100)
 #define FRAMES_PER_BUFFER  (64)
@@ -106,8 +107,7 @@ static int patestCallback( const void *inputBuffer, void *outputBuffer,
                            unsigned long framesPerBuffer,
                            const PaStreamCallbackTimeInfo* timeInfo,
                            PaStreamCallbackFlags statusFlags,
-                           void *userData )
-{
+                           void *userData ) {
   paTestData *data = (paTestData*)userData;
   uint8_t *out = (uint8_t*)outputBuffer;
   unsigned long i;
@@ -117,31 +117,29 @@ static int patestCallback( const void *inputBuffer, void *outputBuffer,
   (void) statusFlags;
   (void) inputBuffer;
 
-  for( i=0; i<framesPerBuffer; i++ )
-    {
+  for( i=0; i<framesPerBuffer; i++ ) {
       if(data->up_count > 0 && data->total_count == data->up_count) {
-	*out++ = 0x00;
-	continue;
+	       *out++ = 0x00;
+	        continue;
       }
       data->total_count++;
-
       if(freq != data->prev_freq) {
-	data->counter = 0;
+	       data->counter = 0;
       }
 
       if(freq) {
-	int overflow_max = SAMPLE_RATE / freq;
-	uint32_t data_cnt = data->counter % overflow_max;
-	if(data_cnt > overflow_max/2)
-	  *out++ = 0xff;
-	else {
-	  *out++ = 0x00;
-	}
-	data->counter++;
+	      int overflow_max = SAMPLE_RATE / freq;
+        uint32_t data_cnt = data->counter % overflow_max;
+        if(data_cnt > overflow_max/2)
+        *out++ = 0xff;
+        else {
+          *out++ = 0x00;
+        }
+        data->counter++;
       }
       else {
-	data->counter = 0;
-	*out++ = 0;
+        data->counter = 0;
+        *out++ = 0;
       }
       data->prev_freq = freq;
     }
@@ -327,51 +325,34 @@ void theme1(){
 }
 
 void beat1(){
+  quarternote(0, 1);
+  quarternote(0, 1);
   quarternote(G2, 1);
+  quarternote(0, 1);
+
+  quarternote(0, 1);
+  quarternote(0, 1);
   quarternote(G2, 1);
+  quarternote(0, 1);
+
+  quarternote(0, 1);
+  quarternote(0, 1);
   quarternote(G2, 1);
   quarternote(G2, 1);
 
+  quarternote(0, 1);
+  quarternote(0, 1);
   quarternote(G2, 1);
-  quarternote(G2, 1);
-  quarternote(G2, 1);
-  quarternote(G2, 1);
-
-  quarternote(G2, 1);
-  quarternote(G2, 1);
-  quarternote(G2, 1);
-  quarternote(G2, 1);
-
-  // quarternote(0, 1);
-  // quarternote(0, 1);
-  // quarternote(G2, 1);
-  // quarternote(0, 1);
-  //
-  // quarternote(0, 1);
-  // quarternote(0, 1);
-  // quarternote(G2, 1);
-  // quarternote(0, 1);
-  //
-  // quarternote(0, 1);
-  // quarternote(0, 1);
-  // quarternote(G2, 1);
-  // quarternote(G2, 1);
-  //
-  // quarternote(0, 1);
-  // quarternote(0, 1);
-  // quarternote(G2, 1);
-  // quarternote(0, 1);
+  quarternote(0, 1);
 }
 
 int main(void) {
 
-  pid_t pid = fork();
-  if (pid == 0){
-    for (int i = 0; i < 4; i ++)
-    theme1();
-  } else {
-    theme1();
-  }
-
+  beat1();
+  beat1();
+  beat1();
+  theme1();
+  theme1();
+  
   return 0;
 }
