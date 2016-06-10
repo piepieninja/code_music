@@ -348,11 +348,11 @@ void beat1(){
 
 int main(void) {
 
-  beat1();
-  beat1();
-  beat1();
+  //beat1();
+  //beat1();
+  //beat1();
   theme1();
-  theme1();
+  //theme1();
   
   return 0;
 }
