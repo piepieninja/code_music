@@ -15,3 +15,5 @@ clean:
 	fi;
 cleansongs:
 	rm songs/*~
+cleantemplates:
+	rm templates/*~
