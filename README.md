@@ -1,6 +1,10 @@
 # code_music
 This is for composing music in assembly on MAC 2.4 GHz Intel Core i5 with nasm
 
+For a nice wave generation example see the templates
+
+For 2 instrument examples go to [portaudio - FAQ: two sounds at same time](http://www.portaudio.com/faq.html#two) 
+
 ## .c dependencies:
 * portaudio - just `brew install portaudio`
 
